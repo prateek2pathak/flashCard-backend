@@ -12,6 +12,15 @@ app.use(express.json());
 // connect to db
 database();
 
+app.get('/',async(req,res)=>{
+    try{
+        res.status(200).send('Hello Backend');
+    }
+    catch(error){
+        res.status(400).send(error);
+    }
+})
+
 app.post('/decks', async (req, res) => {
     try {
         const { name } = req.body;
